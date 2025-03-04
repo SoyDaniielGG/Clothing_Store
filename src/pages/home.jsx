@@ -2,7 +2,6 @@ import React from "react";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import ProductCard from "../components/productCard";
-
 const Home = () => {
     return (
         <div>
