@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
-import "../styles/products.css"
+import "../styles/products.css";
+import { CartContext } from "../context/cartContext";
+import NavBar from "../components/navBar";
+import Footer from "../components/footer";
 
-//BD staica
+const Products = () => {
+   
+        //BD staica
 const productsData = [
     {id:1, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35.000, imagen:'/public/images/camisetaBlanca.jpg'},
     {id:2, nombre: 'Camiseta Blaca', categoria:'Dama',precio:35.000, imagen:''},
@@ -11,7 +16,7 @@ const productsData = [
     {id:5, nombre: 'Camiseta Beige', categoria:'Niños',precio:35.000, imagen:''},
 
 ];
-const Products = () => {
+    const {addToCart} = useContext(CartContext);//importar funcion de agreagar un producto al carrito
     //alamacenar productos filtrados
     const [products, setProducts] = useState(productsData);
     //funcion filtro por categoria
@@ -24,8 +29,10 @@ const Products = () => {
 
         }
     };
+
     return(
         <div>
+            <NavBar/>
             <h2>Productos Disponibles</h2>
             <div className="filter-products">
                 <button onClick={()=>filterProducts('Todos')}>Todos</button>
@@ -40,12 +47,13 @@ const Products = () => {
                         <img src={product.imagen} alt={product.nombre} />
                         <h3> {product.nombre} </h3>
                         <p>Precio: ${product.precio} </p>
-                        <button>Añadir al carrito</button>
+                        <button onClick={()=>addToCart(product)}>Añadir al carrito</button>
 
                     </div>
                 ))}
 
             </div>
+            <Footer/>
         </div>
 
     );
