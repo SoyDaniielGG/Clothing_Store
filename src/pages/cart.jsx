@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 import NavBar from "../components/navBar";
-import Footer from "../components/footer";
+import "../styles/cart.css"
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart, getTotalPrice } = useContext(CartContext);
@@ -9,10 +9,10 @@ const Cart = () => {
   return (
     <div>
       <NavBar/>
-      <header>
+      <header className="cart-container">
       <h2>🛒 Carrito de Compras</h2>
       </header>
-
+      <section>
       {cart.length === 0 ? (
         <p>El carrito está vacío.</p>
       ) : (
@@ -25,11 +25,13 @@ const Cart = () => {
               <button onClick={() => removeFromCart(product.id)}>Eliminar</button>
             </div>
           ))}
-          <h3>Total: ${getTotalPrice()}</h3>
-          <button onClick={clearCart}>Vaciar Carrito</button>
+          <h3 className="cart-total">Total: ${getTotalPrice()}</h3>
+          <button onClick={clearCart} className="clear-cart-btn">Vaciar Carrito</button>
         </div>
       )}
-      <Footer/>
+
+      </section>
+      
     </div>
   );
 };

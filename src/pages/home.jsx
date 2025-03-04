@@ -34,9 +34,7 @@ const Home = () => {
 
                 </div>
 
-            </section>
-            <Footer />
-               
+            </section>             
         </div>
     )
 }

@@ -1,20 +1,27 @@
 .products-list{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
     gap: 20px;
     padding: 20px;
 }
 .product-target{
-    background: white;
+    background: rgb(160, 157, 157);
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-target:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
 }
 .product-target img{
     max-width: 100%;
     height: auto;
-
+    object-fit: cover;
+    border-radius: 8px ;
 }
 button{
     background: #28a745;

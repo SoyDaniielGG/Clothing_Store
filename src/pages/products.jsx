@@ -53,7 +53,7 @@ const productsData = [
                 ))}
 
             </div>
-            <Footer/>
+           
         </div>
 
     );
