@@ -9,11 +9,11 @@ const Products = () => {
    
         //BD staica
 const productsData = [
-    {id:1, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35.000, imagen:'/public/images/camisetaBlanca.jpg'},
-    {id:2, nombre: 'Camiseta Blaca', categoria:'Dama',precio:35.000, imagen:''},
-    {id:3, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35.000, imagen:''},
-    {id:4, nombre: 'Camiseta Roja', categoria:'Dama',precio:35.000, imagen:''},
-    {id:5, nombre: 'Camiseta Beige', categoria:'Niños',precio:35.000, imagen:''},
+    {id:1, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35.000, imagen:'/public/images/camisetaNegra.jpg'},
+    {id:2, nombre: 'Camiseta Blaca', categoria:'Dama',precio:35.000, imagen:'/public/images/camisetaBlanca.jpg'},
+    {id:3, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35.000, imagen:'/public/images/camisetaAzul.jpg'},
+    {id:4, nombre: 'Camiseta Roja', categoria:'Dama',precio:35.000, imagen:'/public/images/camisetaRoja.jpg'},
+    {id:5, nombre: 'Camiseta Beige', categoria:'Niños',precio:35.000, imagen:'/public/images/camisetaBeige.jpg'},
 
 ];
     const {addToCart} = useContext(CartContext);//importar funcion de agreagar un producto al carrito
