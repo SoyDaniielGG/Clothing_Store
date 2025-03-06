@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route}from "react-router-dom";
 import Home from "./pages/home";
 import Products from "./pages/products";
 import Cart from "./pages/cart";
+import Footer from "./components/footer";
 
 const App = () => {
   return(
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/carrito" element={<Cart />} />
 
       </Routes>
+      <Footer />
     </Router>
   );
 };

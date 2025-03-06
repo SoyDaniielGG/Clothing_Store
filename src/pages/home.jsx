@@ -6,12 +6,12 @@ import ProductCard from "../components/productCard";
 const Home = () => {
     return (
         <main className="page-container">
-            <NavBar/>
+            <NavBar />
             <header className="banner">
                 <h1>Bienvenido a Clothing Store</h1>
                 <p>Moda para toda la familia al mejor precio</p>
             </header>
-            
+
             <section className="categorias" aria-labelledby="categorias-titulo">
                 <h2 id="categorias-titulo">Categorías</h2>
                 <nav className="listaCategorias">
@@ -26,14 +26,14 @@ const Home = () => {
             <section className="destacados" aria-labelledby="destacados-titulo">
                 <h2 id="destacados-titulo">Productos Destacados</h2>
                 <div className="products-grid">
-                    <ProductCard name="Camiseta Blanca" price="$35.000" img="/public/images/camisetaBlanca.jpg"/>
-                    <ProductCard name="Camiseta Negra" price="$35.000" img=""/>
-                    <ProductCard name="Pantalon Azul" price="$135.000" img=""/>
-                    <ProductCard name="Pantalon Negro" price="$135.000" img=""/>
-                    <ProductCard name="Camiseta Blanca" price="$35.000" img="/public/images/camisetaBlanca.jpg"/>
-                    <ProductCard name="Camiseta Negra" price="$35.000" img=""/>
-                    <ProductCard name="Pantalon Azul" price="$135.000" img=""/>
-                    <ProductCard name="Pantalon Negro" price="$135.000" img=""/>
+                    <ProductCard name="Camiseta Blanca" price="$35.000" img="/public/images/camisetaBlanca.jpg" />
+                    <ProductCard name="Camiseta Negra" price="$35.000" img="" />
+                    <ProductCard name="Pantalon Azul" price="$135.000" img="" />
+                    <ProductCard name="Pantalon Negro" price="$135.000" img="" />
+                    <ProductCard name="Camiseta Blanca" price="$35.000" img="/public/images/camisetaBlanca.jpg" />
+                    <ProductCard name="Camiseta Negra" price="$35.000" img="" />
+                    <ProductCard name="Pantalon Azul" price="$135.000" img="" />
+                    <ProductCard name="Pantalon Negro" price="$135.000" img="" />
                 </div>
             </section>
             
