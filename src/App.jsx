@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Products from "./pages/products";
 import Cart from "./pages/cart";
 import Footer from "./components/footer";
+import AccesibilityWidget from "./components/accesibilityWidget";
 
 const App = () => {
   return(
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/carrito" element={<Cart />} />
 
       </Routes>
+      <AccesibilityWidget />
       <Footer />
     </Router>
   );
