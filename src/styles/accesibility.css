@@ -1,0 +1,43 @@
+.accesibility-widget{
+    position: fixed;
+    right: 10px;
+    bottom: 60px;
+    z-index: 1000;
+}
+.widget-btn{
+    background: teal;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10;
+    cursor: pointer;
+}
+.widget-btn:hover{
+    background:rgb(0, 114, 114)
+
+}
+.widget-content{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+}
+.widget-content button{
+    background: rgb(255, 255, 255);
+    color: black;
+}
+.widget-content button:hover{
+    background: teal;
+    color: white;
+}
+.high-contrast{
+    background: black !important;
+    color: yellow !important;
+}
+
