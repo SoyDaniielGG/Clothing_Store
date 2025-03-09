@@ -32,22 +32,9 @@ const AccesibilityWidget = () => {
     //modos de accesibilidad para daltonicos
     const [colorMode, setColorMode] = useState("normal");
     const applyColorFilter = (mode) => {
-        setColorMode(mode);
-        switch(mode){
-            case "protanopia":
-                document.body.style.filter = "url(#protanopia)";
-                break;
-            case "deuteranopia":
-                document.body.style.filter = "url(#deuteranopia)";
-                break;
-            case "tritanopia":
-                document.body.style.filter = "url(#tritanopia)";
-                break;
-            case "grayscale":
-                document.body.style.filter = "grayscale(100%)";
-                break;
-            default:
-                document.body.style.filter = "none";
+        document.body.classList.remove("protanopia", "deuteranopia", "tritanopia", "grayscale");
+        if (mode !== "normal") {
+            document.body.classList.add(mode);
         }
     }
     return(

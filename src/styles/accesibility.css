@@ -3,41 +3,95 @@
     right: 10px;
     bottom: 60px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .widget-btn{
     background: teal;
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 10;
+    border-radius: 50%;
+    padding: 15px;
     cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+
 }
 .widget-btn:hover{
-    background:rgb(0, 114, 114)
-
+    background:rgb(0, 114, 114);
+    transform: scale(1.1);
 }
 .widget-content{
     display: flex;
     flex-direction: column;
     background: white;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
-    right: 0;
-    bottom: 40px;
+    right: 40%;
+    bottom: 60%;
+    gap: 10px;
 }
 .widget-content button{
     background: rgb(255, 255, 255);
     color: black;
+    border-style: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .widget-content button:hover{
     background: teal;
     color: white;
+    transform: scale(1.05);
+
+}
+body{
+    transition: filter 0.3s ease;
 }
 .high-contrast{
     background: black !important;
     color: yellow !important;
 }
+.protanopia { filter: url(#protanopia); }
+.deuteranopia { filter: url(#deuteranopia); }
+.tritanopia { filter: url(#tritanopia); }
+.grayscale { filter: grayscale(100%); }
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast p,
+.high-contrast a,
+.high-contrast span,
+.high-contrast button {
+    color: yellow !important;
+}
+
+/* Asegurar que los botones también tengan alto contraste */
+.high-contrast button {
+    background: yellow !important;
+    color: black !important;
+    border: 2px solid yellow !important;
+}
+
+/* Ajustar los enlaces para que sean visibles */
+.high-contrast a {
+    color: yellow !important;
+    text-decoration: underline;
+}
+
+
 
