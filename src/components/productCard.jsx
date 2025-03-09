@@ -1,13 +1,13 @@
 import React from "react";
 
-const ProductCard = ({name, price, img}) => {
+const ProductCard = ({id,nombre, precio, imagen, addToCart}) => {
 
     return(
         <div className="product-card">
-            <img src={`images/${img}`} alt={name} />{/*imagen del producto*/}
-            <h3>{name}</h3>{/*nombre del producto*/}
-            <h3>{price}</h3> {/*precio del producto*/}
-            <button>Añadir al Carrito</button>{/*boton para agregar el producto al carrito*/}
+            <img src={imagen} alt={nombre} />{/*imagen del producto*/}
+            <h3>{nombre}</h3>{/*nombre del producto*/}
+            <h3>{precio} COP</h3> {/*precio del producto*/}
+            <button onClick={()=> addToCart({id,nombre,precio,imagen})}>Añadir al Carrito</button>{/*boton para agregar el producto al carrito*/}
         </div>
     );
 };
