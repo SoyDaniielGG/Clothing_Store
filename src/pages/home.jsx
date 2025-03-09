@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "../components/navBar";
-import Footer from "../components/footer";
 import ProductCard from "../components/productCard";
 
 const Home = () => {
@@ -9,11 +8,9 @@ const Home = () => {
             <NavBar />
             <header className="banner">
                 <h1>Bienvenido a Clothing Store</h1>
-                <p>Moda para toda la familia al mejor precio</p>
+                <p>¡Moda para toda la familia al mejor precio!</p>
             </header>
-
             <section className="categorias" aria-labelledby="categorias-titulo">
-                <h2 id="categorias-titulo">Categorías</h2>
                 <nav className="listaCategorias">
                     <ul>
                         <li><button>Ropa Caballero</button></li>
@@ -24,7 +21,6 @@ const Home = () => {
             </section>
 
             <section className="destacados" aria-labelledby="destacados-titulo">
-                <h2 id="destacados-titulo">Productos Destacados</h2>
                 <div className="products-grid">
                     <ProductCard name="Camiseta Blanca" price="$35.000" img="/public/images/camisetaBlanca.jpg" />
                     <ProductCard name="Camiseta Negra" price="$35.000" img="" />
@@ -37,7 +33,6 @@ const Home = () => {
                 </div>
             </section>
             
-            <Footer />
         </main>
     )
 }
