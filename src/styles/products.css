@@ -1,3 +1,19 @@
+.filter-products{
+    text-align: center;
+    margin: 0;
+    background: linear-gradient(to right, white 23%, #333 49%, white 80%);
+}
+.filter-products button{
+    background: rgb(119, 119, 119);
+    border-radius: 0;
+    font-size: large;
+
+}
+.filter-products button:hover{
+    background: white;
+    color: black;
+}
+    
 .products-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
@@ -19,7 +35,7 @@
 }
 .product-target img{
     max-width: 100%;
-    height: auto;
+    height: 160px;
     object-fit: cover;
     border-radius: 8px ;
 }

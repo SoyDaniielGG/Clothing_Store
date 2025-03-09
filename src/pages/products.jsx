@@ -3,17 +3,35 @@ import { useState } from "react";
 import "../styles/products.css";
 import { CartContext } from "../context/cartContext";
 import NavBar from "../components/navBar";
-import Footer from "../components/footer";
 
 const Products = () => {
    
         //BD staica
 const productsData = [
-    {id:1, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35.000, imagen:'/public/images/camisetaNegra.jpg'},
-    {id:2, nombre: 'Camiseta Blaca', categoria:'Dama',precio:35.000, imagen:'/public/images/camisetaBlanca.jpg'},
-    {id:3, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35.000, imagen:'/public/images/camisetaAzul.jpg'},
-    {id:4, nombre: 'Camiseta Roja', categoria:'Dama',precio:35.000, imagen:'/public/images/camisetaRoja.jpg'},
-    {id:5, nombre: 'Camiseta Beige', categoria:'Niños',precio:35.000, imagen:'/public/images/camisetaBeige.jpg'},
+    {id:1, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaNegra.jpg'},
+    {id:2, nombre: 'Camiseta Blanca', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaBlanca.jpg'},
+    {id:3, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaAzul.jpg'},
+    {id:4, nombre: 'Camiseta Roja', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaRoja.jpg'},
+    {id:5, nombre: 'Camiseta Beige', categoria:'Niños',precio:35000, imagen:'/public/images/camisetaBeige.jpg'},
+    {id:6, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaNegra.jpg'},
+    {id:7, nombre: 'Camiseta Blanca', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaBlanca.jpg'},
+    {id:8, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaAzul.jpg'},
+    {id:9, nombre: 'Camiseta Roja', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaRoja.jpg'},
+    {id:10, nombre: 'Camiseta Beige', categoria:'Niños',precio:35000, imagen:'/public/images/camisetaBeige.jpg'},
+    {id:11, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaNegra.jpg'},
+    {id:12, nombre: 'Camiseta Blanca', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaBlanca.jpg'},
+    {id:13, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaAzul.jpg'},
+    {id:14, nombre: 'Camiseta Roja', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaRoja.jpg'},
+    {id:15, nombre: 'Camiseta Beige', categoria:'Niños',precio:35000, imagen:'/public/images/camisetaBeige.jpg'},
+    {id:16, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaNegra.jpg'},
+    {id:17, nombre: 'Camiseta Blanca', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaBlanca.jpg'},
+    {id:18, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaAzul.jpg'},
+    {id:19, nombre: 'Camiseta Roja', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaRoja.jpg'},
+    {id:20, nombre: 'Camiseta Beige', categoria:'Niños',precio:35000, imagen:'/public/images/camisetaBeige.jpg'},
+    {id:21, nombre: 'Camiseta Negra', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaNegra.jpg'},
+    {id:22, nombre: 'Camiseta Blanca', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaBlanca.jpg'},
+    {id:23, nombre: 'Camiseta Azul', categoria:'Caballero',precio:35000, imagen:'/public/images/camisetaAzul.jpg'},
+    {id:24, nombre: 'Camiseta Roja', categoria:'Dama',precio:35000, imagen:'/public/images/camisetaRoja.jpg'},
 
 ];
     const {addToCart} = useContext(CartContext);//importar funcion de agreagar un producto al carrito
@@ -33,14 +51,15 @@ const productsData = [
     return(
         <div>
             <NavBar/>
-            <h2>Productos Disponibles</h2>
+            <section className="filter-btn" aria-label="Sección de botones de filtrado">
             <div className="filter-products">
-                <button onClick={()=>filterProducts('Todos')}>Todos</button>
+                <button onClick={()=>filterProducts('Todos')}>Todo</button>
                 <button onClick={()=>filterProducts('Dama')}>Dama</button>
                 <button onClick={()=>filterProducts('Caballero')}>Caballero</button>
                 <button onClick={()=>filterProducts('Niños')}>Niños</button>
-
             </div>
+            </section>
+
             <div className="products-list">
                 {products.map((product)=>(
                     <div className="product-target" key={product.id}>
