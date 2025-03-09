@@ -16,7 +16,7 @@ const NavBar = () => {
                     <li><Link to="/" aria-current="page">Inicio</Link></li>
                     <li><Link to="/productos">Productos</Link></li>
                     <li><Link to="/carrito">🛒 Carrito {getCartItemCount() > 0 && <span className="cart-count">({getCartItemCount()})</span>}</Link></li>
-                    <li><Link to="/contacto">Contacto</Link></li>
+                    <li><Link to="/acerca-de">Acerca de</Link></li>
                 </ul>
             </nav>
         </header>
