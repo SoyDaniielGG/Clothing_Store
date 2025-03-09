@@ -77,12 +77,12 @@ body{
 .categorias{
     text-align: center;
     margin: 0;
-    background: linear-gradient(to right, white 23%, #333 48%, white 90%);
+    background: linear-gradient(to right, white 23%, gray 50%, white 90%);
 }
 .listaCategorias button{
     padding: 10px;
     border: none;
-    background: gray;
+    background: transparent;
     color: white;
     cursor: pointer;
     font-size: large;
@@ -102,25 +102,10 @@ body{
     list-style: none;
 }
 .products-grid{
-    display:flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
     gap: 20px;
-    flex-wrap: wrap;
     padding: 20px;
-}
-.products-card{
-    background: rgb(168, 160, 160);
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    width: 200px;
-}
-.products-card img{
-    width: 100%;
-    height: auto;
-}
-.products-card button:hover{
-    cursor: pointer;
 }
 .footer {
     background: #333;
