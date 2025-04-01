@@ -1,66 +1,104 @@
+'use client';
+
 import React, { useState } from "react";
-import "../styles/accesibility.css"
+import "../styles/accesibilityWidget.css";
 
 const AccesibilityWidget = () => {
-    //control de abir y cerrar el widget
-    const [isOpen, setIsOpen] =useState(false);
-    const toggleWidget = () => setIsOpen(!isOpen);
-    //tamaño de fuente original
-    const [fontSize, setFontSize] = useState(16);
-    //aumentar tamaño de fuente del body +2px maximo hasta 24px
-    const increaseFontSize = () => {
-        if(fontSize < 24){
-            setFontSize (fontSize +2)
-            document.body.style.fontSize = `${fontSize +2}px`
-        }
+  const [fontSize, setFontSize] = useState(16);
+
+  const increaseFontSize = () => {
+    setFontSize(prev => Math.min(prev + 2, 24));
+    document.documentElement.style.fontSize = `${Math.min(fontSize + 2, 24)}px`;
+  };
+
+  const decreaseFontSize = () => {
+    setFontSize(prev => Math.max(prev - 2, 12));
+    document.documentElement.style.fontSize = `${Math.max(fontSize - 2, 12)}px`;
+  };
+
+  const resetFontSize = () => {
+    setFontSize(16);
+    document.documentElement.style.fontSize = '16px';
+  };
+
+  const applyColorFilter = (mode) => {
+    // Primero removemos todas las clases de filtro
+    document.body.classList.remove(
+      'grayscale-mode',
+      'protanopia-mode',
+      'deuteranopia-mode',
+      'tritanopia-mode',
+      'high-contrast'
+    );
+    
+    // Luego aplicamos el modo seleccionado
+    if (mode !== 'normal') {
+      document.body.classList.add(`${mode}-mode`);
     }
-    //disminuir el tamaño de la fuente del body -2px minimo hasta 12px
-    const decreaseFontSize = () => {
-        if(fontSize > 12){
-            setFontSize(fontSize - 2);
-            document.body.style.fontSize = `${fontSize - 2}px`
-        }
-    }
-    //regresar a fuente original del body
-    const resetFontSize = () =>{
-        document.body.style.fontSize = "initial"
-    }
-    //control de contraste del body
-    const toggleContrast = () => {
-        document.body.classList.toggle("high-contrast");
-    }
-    //modos de accesibilidad para daltonicos
-    const [colorMode, setColorMode] = useState("normal");
-    const applyColorFilter = (mode) => {
-        document.body.classList.remove("protanopia", "deuteranopia", "tritanopia", "grayscale");
-        if (mode !== "normal") {
-            document.body.classList.add(mode);
-        }
-    }
-    return(
-        <div className={`accesibility-widget ${isOpen ? "open": ""}`}>
-            <button className="widget-btn" onClick={toggleWidget} aria-label="Opciones de accesibilidad" title="Opciones de accesibilidad">&#9855;</button>
-            {isOpen && (
-                <div className="widget-content">
-                    <button onClick={increaseFontSize} aria-label="Aumentar tamaño del texto" title="Aumentar tamaño del texto">&#128269;+</button>
-                    <button onClick={decreaseFontSize} aria-label="Disminuir tamaño del texto" title="Disminuir tamaño del texto">&#128269;-</button>
-                    <button onClick={resetFontSize} aria-label="Restablecer tamaño del texto" title="Restablecer tamaño del texto">&#8634;</button>
-                    <button onClick={toggleContrast} aria-label="Alternar contraste" title="Alternar Contraste">&#127763;</button>
-                    <button onClick={()=>applyColorFilter("normal")} aria-label="Modo de colores normal" title="Modo de colores normal">&#127752;</button>
-                    <button onClick={()=>applyColorFilter("protanopia")} aria-label="Modo protanopia" title="Modo Protanopia">&#128308;</button>
-                    <button onClick={()=>applyColorFilter("deuteranopia")} aria-label="Modo deuteranopia" title="Modo Deuteranopia">&#128994;</button>
-                    <button onClick={()=>applyColorFilter("tritanopia")} aria-label="Modo tritanopia" title="Modo Tritanopia">&#128309;</button>                    
-                    <button onClick={()=>applyColorFilter("grayscale")} aria-label="Modo escala de grises" title="Modo escala de grises">&#9899;</button>
+  };
 
+  return (
+    <div className="accessibility-widget">
+      <div className="widget-buttons">
+        <button 
+          onClick={increaseFontSize}
+          aria-label="Aumentar tamaño del texto"
+          title="Aumentar tamaño del texto"
+        >
+          🔍+
+        </button>
+        <button 
+          onClick={decreaseFontSize}
+          aria-label="Disminuir tamaño del texto"
+          title="Disminuir tamaño del texto"
+        >
+          🔍-
+        </button>
+        <button 
+          onClick={resetFontSize}
+          aria-label="Restablecer tamaño del texto"
+          title="Restablecer tamaño del texto"
+        >
+          ↺
+        </button>
+        <button 
+          onClick={() => applyColorFilter('normal')}
+          aria-label="Modo de colores normal"
+          title="Modo de colores normal"
+        >
+          🌈
+        </button>
+        <button 
+          onClick={() => applyColorFilter('protanopia')}
+          aria-label="Modo protanopia"
+          title="Modo protanopia"
+        >
+          🔴
+        </button>
+        <button 
+          onClick={() => applyColorFilter('deuteranopia')}
+          aria-label="Modo deuteranopia"
+          title="Modo deuteranopia"
+        >
+          🟢
+        </button>
+        <button 
+          onClick={() => applyColorFilter('tritanopia')}
+          aria-label="Modo tritanopia"
+          title="Modo tritanopia"
+        >
+          🔵
+        </button>
+        <button 
+          onClick={() => applyColorFilter('grayscale')}
+          aria-label="Modo escala de grises"
+          title="Modo escala de grises"
+        >
+          ⚫
+        </button>
+      </div>
+    </div>
+  );
+};
 
-                </div>
-            )
-
-            }
-        </div>
-
-    )
-
-
-}
 export default AccesibilityWidget;
