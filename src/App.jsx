@@ -1,22 +1,22 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route}from "react-router-dom";
-import Home from "./pages/home";
-import Products from "./pages/products";
-import Cart from "./pages/cart";
+import Link from "next/link";
+import AccesibilityWidget from "./components/accesibilityWidget";
 import Footer from "./components/footer";
 
-const App = () => {
-  return(
-    <Router>
-      {/* Definir las rutas de la aplicación */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Products />} />
-        <Route path="/carrito" element={<Cart />} />
-
-      </Routes>
+const App = ({ Component, pageProps }) => {
+  return (
+    <>
+      <nav>
+        <Link href="/">Inicio</Link>
+        <Link href="/productos">Productos</Link>
+        <Link href="/carrito">Carrito</Link>
+        <Link href="/acerca-de">Acerca de</Link>
+      </nav>
+      <Component {...pageProps} />
+      <AccesibilityWidget />
       <Footer />
-    </Router>
+    </>
   );
 };
+
 export default App;

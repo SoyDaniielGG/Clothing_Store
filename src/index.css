@@ -19,17 +19,50 @@ body{
 }
 .navbar ul li{
     list-style: none;
-    margin: 0px;
+    margin: 0;
     padding: 5px;
     font-size: 23px;
 }
 .navbar ul li:hover{
-    background: grey;
+    background: rgb(34, 34, 34);
 }
 .navbar ul{
     display: flex;
-    
+    margin: 0;
+    justify-content: center;
+    align-items: center;
 }
+.logo a{
+    text-decoration: none;
+}
+.logo h1{
+    color: beige;
+    font-family:cursive;
+    font-size: 45px;
+    margin: 0;
+}
+.banner h1{
+    color: beige;
+    font-family: cursive;
+    font-size: 65px;
+    margin: 0;
+    text-shadow: 
+    -2px -2px 0 black,  
+     2px -2px 0 black,
+    -2px  2px 0 black,
+     2px  2px 0 black;
+} 
+.banner p{
+    color: beige;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 35px;
+    margin: 0;
+    text-shadow: 
+    -2px -2px 0 black,  
+     2px -2px 0 black,
+    -2px  2px 0 black,
+     2px  2px 0 black;
+}  
 .banner{
     text-align: center;
     background: url(/images/banner.jpg) no-repeat center;
@@ -37,43 +70,42 @@ body{
     padding: 100px 20px;
     color: white;
     font-size: 25px;
+    margin: 0;
+  
 }
+
 .categorias{
     text-align: center;
-    padding: 20px;
+    margin: 0;
+    background: linear-gradient(to right, white 23%, gray 50%, white 90%);
 }
 .listaCategorias button{
-    margin: 5px;
     padding: 10px;
     border: none;
-    background: #007bff;
+    background: transparent;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: large;
+    border-radius: 0;
 }
 .listaCategorias button:hover{
-    background: #0056b3;
+    background: white;
+    color: #000;
+}
+.listaCategorias ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.listaCategorias ul li{
+    list-style: none;
 }
 .products-grid{
-    display:flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
     gap: 20px;
-    flex-wrap: wrap;
     padding: 20px;
-}
-.products-card{
-    background: rgb(168, 160, 160);
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    width: 200px;
-}
-.products-card img{
-    width: 100%;
-    height: auto;
-}
-.products-card button:hover{
-    cursor: pointer;
 }
 .footer {
     background: #333;
