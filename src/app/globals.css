@@ -35,12 +35,17 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-
+.logo {
+  display: flex;
+  align-items: center;  
+}
 .logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-decoration: none;
+  background-image: url('/images/logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 100px;
 }
 
 .nav-links {
@@ -263,4 +268,7 @@ main {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+.cart-container{
+  margin-top: 30px;
 }

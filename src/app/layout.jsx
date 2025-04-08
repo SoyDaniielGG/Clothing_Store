@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <header>
             <nav>
               <div className="logo">
-                <Link href="/">Clothing Store</Link>
+                <Link href="/"></Link>
               </div>
               <div className="nav-links">
                 <Link href="/">Inicio</Link>
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
                 <Link href="/carrito">
                   <CartCounter />
                 </Link>
-                <Link href="/acerca-de">Contacto</Link>
+                <Link href="/acerca-de">Acerca de</Link>
               </div>
             </nav>
           </header>
