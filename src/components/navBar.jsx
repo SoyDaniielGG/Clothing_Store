@@ -1,25 +1,30 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { CartContext } from "../context/cartContext";
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { useCart } from '../context/cartContext';
+import '../styles/navbar.css'
 
 const NavBar = () => {
-    const { getCartItemCount } = useContext(CartContext);
+    const { cartItems } = useCart();
+    const cartItemsCount = cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+
     return (
-        <header className="site-header">
-            <nav className="navbar" aria-label="Navegación principal">
-                <div className="logo">
-                    <Link to="/">
-                        <h1>Clothing Store</h1>
+        <nav className="navbar" role="navigation" aria-label="Navegación principal">
+            <div className="nav-brand">
+                <Link href="/" aria-label="Ir a inicio">Clothing Store</Link>
+            </div>
+            <ul className="nav-links">
+                <li><Link href="/" aria-current="page" aria-label='Ir a inicio' >Inicio</Link></li>
+                <li><Link href="/productos" aria-label="Ir a productos">Productos</Link></li>
+                <li>
+                    <Link href="/carrito" className="cart-link" aria-label={`Carrito de compras, ${cartItemsCount} artículos`}>
+                        Carrito ({cartItemsCount})
                     </Link>
-                </div>
-                <ul className="nav-links">
-                    <li><Link to="/" aria-current="page">Inicio</Link></li>
-                    <li><Link to="/productos">Productos</Link></li>
-                    <li><Link to="/carrito">🛒 Carrito {getCartItemCount() > 0 && <span className="cart-count">({getCartItemCount()})</span>}</Link></li>
-                    <li><Link to="/acerca-de">Acerca de</Link></li>
-                </ul>
-            </nav>
-        </header>
+                </li>
+                <li><Link href="/contacto" aria-label='Ir a contacto' >Contacto</Link></li>
+            </ul>
+        </nav>
     );
 };
 

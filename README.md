@@ -1,24 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clothing Store
 
-## Getting Started
+Tienda de ropa en línea construida con Next.js y React.
 
-First, run the development server:
+## Estructura del Proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+src/
+├── app/                    # Next.js App Router
+├── components/            # Componentes reutilizables
+│   ├── ui/               # Componentes de UI básicos
+│   └── features/         # Componentes específicos de funcionalidad
+├── context/              # Contextos de React
+├── hooks/                # Custom hooks
+├── lib/                  # Utilidades y configuraciones
+├── styles/               # Estilos globales y temas
+└── types/                # Definiciones de tipos
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js
+- React
+- Tailwind CSS
+- ESLint
+- Prettier
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación
+
+1. Clonar el repositorio
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+3. Iniciar el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+## Scripts
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm run start` - Inicia la aplicación en producción
+- `npm run lint` - Ejecuta ESLint
+- `npm run format` - Formatea el código con Prettier
+
+## Convenciones
+
+- Componentes: PascalCase (ej: `Button.jsx`)
+- Hooks: camelCase con prefijo 'use' (ej: `useCart.jsx`)
+- Archivos de estilos: kebab-case (ej: `globals.css`)
+- Props: camelCase
+- Eventos: prefijo 'handle' (ej: `handleClick`)
+
+## Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
 ## Learn More
 

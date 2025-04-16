@@ -1,47 +1,72 @@
 'use client';
 
-import { useState } from "react";
-import { productsData } from "../data/products";
-import ProductCard from "../components/productCard";
-import "../styles/productCard.css";
+import React from "react";
+import Link from "next/link";
+import { FaMale, FaFemale, FaChild } from "react-icons/fa";
+import "../styles/home.css";
 
-export default function Home() {
-    const [selectCategory, setSelectCategory] = useState("todos");
-
-    // Filtra productos según la categoría seleccionada
-    const filteredProducts = selectCategory === "todos"
-        ? productsData
-        : productsData.filter(product => product.categoria === selectCategory);
-
+const HomePage = () => {
     return (
-        <div className="page-container">
-            <header className="banner">
-                <h1>Bienvenido a Clothing Store</h1>
-                <p>¡Moda para toda la familia al mejor precio!</p>
-            </header>
-            
-            <section className="categorias" aria-labelledby="categorias">
-                <nav className="listaCategorias">
-                    <ul>
-                        <li><button onClick={() => setSelectCategory("todos")}>Todo</button></li>
-                        <li><button onClick={() => setSelectCategory("Caballero")}>Caballero</button></li>
-                        <li><button onClick={() => setSelectCategory("Dama")}>Dama</button></li>
-                        <li><button onClick={() => setSelectCategory("Niños")}>Niños</button></li>
-                    </ul>
-                </nav>
-            </section>
-
-            <section className="destacados" aria-labelledby="destacados">
-                <div className="products-grid">
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map(product => (
-                            <ProductCard key={product.id} {...product} />
-                        ))
-                    ) : (
-                        <p>No hay productos disponibles en esta categoría</p>
-                    )}
+        <main className="home-container">
+            <section className="hero-banner">
+                <div className="hero-content">
+                    <h1>Bienvenido a Clothing Store</h1>
+                    <p>Descubre las últimas tendencias en moda para toda la familia</p>
+                    <Link href="/productos" className="cta-button">
+                        Ver Catálogo
+                    </Link>
                 </div>
             </section>
-        </div>
+
+            <section className="featured-categories">
+                <h2>Categorías Destacadas</h2>
+                <div className="categories-grid">
+                    <div className="category-card">
+                        <div className="category-icon">
+                            <FaMale size={60} />
+                        </div>
+                        <div className="category-info">
+                            <h3>Caballero</h3>
+                            <Link href="/productos?categoria=Caballero" className="category-link">
+                                Ver más
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="category-card">
+                        <div className="category-icon">
+                            <FaFemale size={60} />
+                        </div>
+                        <div className="category-info">
+                            <h3>Dama</h3>
+                            <Link href="/productos?categoria=Dama" className="category-link">
+                                Ver más
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="category-card">
+                        <div className="category-icon">
+                            <FaChild size={60} />
+                        </div>
+                        <div className="category-info">
+                            <h3>Niños</h3>
+                            <Link href="/productos?categoria=Niños" className="category-link">
+                                Ver más
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="about-us">
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    Somos una tienda de ropa comprometida con ofrecer productos de calidad
+                    a precios accesibles. Nuestra misión es vestir a toda la familia con
+                    estilo y comodidad.
+                </p>
+            </section>
+        </main>
     );
-}
+};
+
+export default HomePage;
