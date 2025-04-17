@@ -4,11 +4,13 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
-  experimental: {
-    serverActions: true,
-  },
-  useFileSystemPublicRoutes: true,
-  pageExtensions: ['jsx', 'js', 'tsx', 'ts'],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname, 'src'),
+    };
+    return config;
+  }
 };
 
 module.exports = nextConfig; 

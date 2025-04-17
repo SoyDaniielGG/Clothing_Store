@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import { SessionProvider } from "next-auth/react";
 import { CartProvider } from "../context/cartContext";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
@@ -16,20 +17,22 @@ export default function RootLayout({ children }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </head>
             <body>
-                <CartProvider>
-                    <div id="content-wrapper" role="document">
-                        <header role="banner">
-                            <NavBar />
-                        </header>
-                        <main role="main" id="main-content">
-                            {children}
-                        </main>
-                        <Footer />
-                    </div>
-                    <aside role="complementary">
-                        <AccesibilityWidget />
-                    </aside>
-                </CartProvider>
+                <SessionProvider>
+                    <CartProvider>
+                        <div id="content-wrapper" role="document">
+                            <header role="banner">
+                                <NavBar />
+                            </header>
+                            <main role="main" id="main-content">
+                                {children}
+                            </main>
+                            <Footer />
+                        </div>
+                        <aside role="complementary">
+                            <AccesibilityWidget />
+                        </aside>
+                    </CartProvider>
+                </SessionProvider>
             </body>
         </html>
     );
