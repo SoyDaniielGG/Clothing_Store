@@ -6,6 +6,7 @@ import { CartProvider } from "../context/cartContext";
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
 import AccesibilityWidget from "../components/accesibilityWidget";
+import ShoppingAssistant from "../components/ShoppingAssistant";
 import "../styles/globals.css";
 
 export default function RootLayout({ children }) {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
                                 {children}
                             </main>
                             <Footer />
+                            <ShoppingAssistant />
                         </div>
                         <aside role="complementary">
                             <AccesibilityWidget />
