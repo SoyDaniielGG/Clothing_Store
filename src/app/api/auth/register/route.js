@@ -1,33 +1,22 @@
 import { NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
-import prisma from '@/lib/prisma';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { auth, db } from '@/lib/firebase/config';
 
 export async function POST(request) {
     try {
         const { nombre, email, password } = await request.json();
 
-        // Verificar si el usuario ya existe
-        const existingUser = await prisma.usuario.findUnique({
-            where: { email }
-        });
+        // Intentar crear el usuario con Firebase Auth
+        // createUserWithEmailAndPassword ya verifica si el email existe
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-        if (existingUser) {
-            return NextResponse.json(
-                { message: 'El email ya está registrado' },
-                { status: 400 }
-            );
-        }
-
-        // Encriptar la contraseña
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Crear el nuevo usuario
-        const user = await prisma.usuario.create({
-            data: {
-                nombre,
-                email,
-                password: hashedPassword,
-            },
+        // Guardar información adicional del usuario en Firestore
+        await setDoc(doc(db, 'usuarios', user.uid), {
+            nombre: nombre,
+            email: user.email,
+            // No guardes la contraseña aquí, Firebase Auth la maneja de forma segura
         });
 
         return NextResponse.json(
@@ -41,4 +30,4 @@ export async function POST(request) {
             { status: 500 }
         );
     }
-} 
+}
