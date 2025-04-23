@@ -1,25 +1,58 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { CartContext } from "../context/cartContext";
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
+import { useCart } from '../context/cartContext';
+import '../styles/navbar.css';
 
 const NavBar = () => {
-    const { getCartItemCount } = useContext(CartContext);
+    const { data: session } = useSession();
+    const { cartItems } = useCart();
+    const cartItemsCount = cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+
     return (
-        <header className="site-header">
-            <nav className="navbar" aria-label="Navegación principal">
-                <div className="logo">
-                    <Link to="/">
-                        <h1>Clothing Store</h1>
+        <nav className="navbar" role="navigation" aria-label="Navegación principal">
+            <div className="navbar-container">
+                <Link href="/" className="navbar-logo" aria-label="Ir a inicio">
+                    Clothing Store
+                </Link>
+                <div className="navbar-links">
+                    <Link href="/" className="navbar-link" aria-current="page" aria-label='Ir a inicio'>
+                        Inicio
+                    </Link>
+                    <Link href="/productos" className="navbar-link" aria-label="Ir a productos">
+                        Productos
+                    </Link>
+                    <Link href="/carrito" className="navbar-link" aria-label={`Carrito de compras, ${cartItemsCount} artículos`}>
+                        Carrito ({cartItemsCount})
+                    </Link>
+                    <Link href="/contacto" className="navbar-link" aria-label='Ir a contacto'>
+                        Contacto
                     </Link>
                 </div>
-                <ul className="nav-links">
-                    <li><Link to="/" aria-current="page">Inicio</Link></li>
-                    <li><Link to="/productos">Productos</Link></li>
-                    <li><Link to="/carrito">🛒 Carrito {getCartItemCount() > 0 && <span className="cart-count">({getCartItemCount()})</span>}</Link></li>
-                    <li><Link to="/acerca-de">Acerca de</Link></li>
-                </ul>
-            </nav>
-        </header>
+                <div className="navbar-actions">
+                    {session ? (
+                        <>
+                            <Link href="/perfil" className="navbar-link" aria-label='Ir a perfil'>
+                                Mi Perfil
+                            </Link>
+                            <button 
+                                onClick={() => signOut()} 
+                                className="navbar-button"
+                                aria-label='Cerrar sesión'
+                            >
+                                Cerrar Sesión
+                            </button>
+                        </>
+                    ) : (
+                        <Link href="/login" className="navbar-link" aria-label='Iniciar sesión'>
+                            Iniciar Sesión
+                        </Link>
+                    )}
+                </div>
+            </div>
+        </nav>
     );
 };
 

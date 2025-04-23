@@ -4,28 +4,30 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 import "../styles/productCard.css";
 
-const ProductCard = ({ id, nombre, precio, imagen }) => {
+const ProductCard = ({ id, nombre, precio, imagen, categoria }) => {
   const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
-    addToCart({ id, nombre, precio, imagen });
+    addToCart({ id, nombre, precio, imagen, categoria });
   };
 
+  const formattedPrice = precio ? precio.toLocaleString() : "0";
+
   return (
-    <article className="product-card" role="article">
+    <article className="product-card" aria-labelledby={`product-${id}-title`}>
       <img src={imagen} alt={nombre} className="product-image" />
       <div className="product-info">
-        <h3>{nombre}</h3>
-        <p className="price" aria-label={`Precio: ${precio.toLocaleString()} pesos`}>
+        <h3 id={`product-${id}-title`}>{nombre}</h3>
+        <p className="price" aria-label={`Precio: ${formattedPrice} pesos`}>
           <span className="visually-hidden">Precio:</span>
-          ${precio.toLocaleString()} COP
+          ${formattedPrice} COP
         </p>
         <button 
-          className="add-to-cart" 
           onClick={handleAddToCart}
-          aria-label={`Añadir ${nombre} al carrito`}
+          className="add-to-cart-button"
+          aria-label={`Agregar ${nombre} al carrito`}
         >
-          Añadir al Carrito
+          Agregar al Carrito
         </button>
       </div>
     </article>

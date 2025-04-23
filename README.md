@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clothing Store - Tienda de Ropa Online
 
-## Getting Started
+## 📋 Descripción
+Clothing Store es una tienda de ropa online moderna y accesible, desarrollada con Next.js y React. El proyecto se enfoca en proporcionar una excelente experiencia de usuario a través de un diseño responsivo, accesibilidad y un asistente de compras inteligente.
 
-First, run the development server:
+## 🚀 Características Principales
 
+### 🛍️ Asistente de Compras Inteligente
+- Integración con Google Gemini AI para respuestas contextuales
+- Capacidad de búsqueda y recomendación de productos
+- Interfaz de chat intuitiva y accesible
+- Respuestas en tiempo real sobre precios, categorías y disponibilidad
+
+### ♿ Widget de Accesibilidad
+El widget de accesibilidad incluye las siguientes opciones:
+
+1. **Modo Oscuro/Claro**
+   - Reduce la fatiga visual
+   - Mejora el contraste para usuarios con sensibilidad a la luz
+   - Opción de cambio automático según preferencias del sistema
+
+2. **Aumentar/Disminuir Tamaño de Texto**
+   - Permite ajustar el tamaño de fuente según necesidades
+   - Mejora la legibilidad para usuarios con problemas de visión
+   - Mantiene la proporción y diseño del sitio
+
+3. **Alto Contraste**
+   - Mejora la visibilidad para usuarios con problemas de visión
+   - Aumenta el contraste entre texto y fondo
+   - Facilita la lectura en diferentes condiciones de luz
+
+4. **Lector de Pantalla**
+   - Compatibilidad con lectores de pantalla
+   - Estructura semántica para navegación eficiente
+   - Descripciones alternativas para imágenes
+
+5. **Navegación por Teclado**
+   - Soporte completo para navegación con teclado
+   - Atajos de teclado para funciones principales
+   - Indicadores visuales de foco
+
+### 🎨 Diseño y Estructura
+
+#### HTML Semántico
+- Uso de etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+- Estructura jerárquica clara para mejor SEO y accesibilidad
+- Etiquetas ARIA para mejorar la accesibilidad
+- Metaetiquetas para SEO y compatibilidad móvil
+
+#### Estilos CSS
+- Diseño responsivo con media queries
+- Sistema de grid y flexbox para layouts modernos
+- Variables CSS para consistencia en colores y espaciado
+- Animaciones suaves para mejor UX
+- Diseño mobile-first
+
+## 🛠️ Instalación
+
+1. **Clonar el repositorio**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [url-del-repositorio]
+cd clothing-store
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Instalar dependencias**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. **Configurar variables de entorno**
+Crear un archivo `.env.local` con las siguientes variables:
+```env
+# Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=tu_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=tu_dominio
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=tu_proyecto_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=tu_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=tu_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=tu_app_id
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Google AI (Gemini)
+NEXT_PUBLIC_GEMINI_API_KEY=tu_api_key_de_gemini
+```
 
-## Learn More
+4. **Iniciar el servidor de desarrollo**
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Estructura del Proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+clothing-store/
+├── src/
+│   ├── components/     # Componentes React
+│   ├── data/          # Datos estáticos
+│   ├── lib/           # Utilidades y configuraciones
+│   ├── styles/        # Estilos CSS
+│   └── pages/         # Páginas de Next.js
+├── public/            # Archivos estáticos
+└── package.json       # Dependencias y scripts
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Tecnologías Utilizadas
 
-## Deploy on Vercel
+- **Frontend**: Next.js, React, CSS
+- **Base de Datos**: Firebase
+- **Autenticación**: NextAuth
+- **IA**: Google Gemini AI
+- **Despliegue**: Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Mejoras de UX Implementadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Rendimiento**
+   - Carga progresiva de imágenes
+   - Optimización de recursos estáticos
+   - Caché de respuestas del asistente
+
+2. **Accesibilidad**
+   - Cumplimiento WCAG 2.1
+   - Soporte para lectores de pantalla
+   - Controles de accesibilidad personalizables
+
+3. **Interactividad**
+   - Feedback visual inmediato
+   - Transiciones suaves
+   - Estados de carga claros
+
+4. **Responsividad**
+   - Diseño adaptativo
+   - Touch-friendly en móviles
+   - Breakpoints optimizados
+
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
