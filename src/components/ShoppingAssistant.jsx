@@ -101,12 +101,6 @@ const ShoppingAssistant = () => {
   //   return 'Hola, soy tu asistente de compras. ¿En qué puedo ayudarte? Puedes preguntarme sobre precios, categorías o buscar productos específicos.';
   // };
 
-  const extractProductName = (query) => {
-    return query.toLowerCase().split(' ').find(word => 
-      productsData.some(p => p.nombre.toLowerCase().includes(word))
-    ) || '';
-  };
-
   return (
     <>
       <button 
