@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore'; // Removed getDoc
 import { auth, db } from '@/lib/firebase/config';
 
 export async function POST(request) {

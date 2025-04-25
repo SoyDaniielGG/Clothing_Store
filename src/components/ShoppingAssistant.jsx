@@ -80,25 +80,26 @@ const ShoppingAssistant = () => {
     }
   };
 
-  const processUserQuery = async (query) => {
-    const products = productsData;
-    const lowerQuery = query.toLowerCase();
-
-    if (lowerQuery.includes('precio') || lowerQuery.includes('cost')) {
-      const productName = extractProductName(query);
-      const product = products.find(p => p.nombre.toLowerCase().includes(productName));
-      if (product) {
-        return `El precio de ${product.nombre} es $${product.precio.toLocaleString('es-CO')} COP`;
-      }
-    }
-
-    if (lowerQuery.includes('categoría') || lowerQuery.includes('tipo')) {
-      const categories = [...new Set(products.map(p => p.categoria))];
-      return `Tenemos las siguientes categorías: ${categories.join(', ')}`;
-    }
-
-    return 'Hola, soy tu asistente de compras. ¿En qué puedo ayudarte? Puedes preguntarme sobre precios, categorías o buscar productos específicos.';
-  };
+  // Removed unused processUserQuery function
+  // const processUserQuery = async (query) => {
+  //   const products = productsData;
+  //   const lowerQuery = query.toLowerCase();
+  //
+  //   if (lowerQuery.includes('precio') || lowerQuery.includes('cost')) {
+  //     const productName = extractProductName(query);
+  //     const product = products.find(p => p.nombre.toLowerCase().includes(productName));
+  //     if (product) {
+  //       return `El precio de ${product.nombre} es $${product.precio.toLocaleString('es-CO')} COP`;
+  //     }
+  //   }
+  //
+  //   if (lowerQuery.includes('categoría') || lowerQuery.includes('tipo')) {
+  //     const categories = [...new Set(products.map(p => p.categoria))];
+  //     return `Tenemos las siguientes categorías: ${categories.join(', ')}`;
+  //   }
+  //
+  //   return 'Hola, soy tu asistente de compras. ¿En qué puedo ayudarte? Puedes preguntarme sobre precios, categorías o buscar productos específicos.';
+  // };
 
   const extractProductName = (query) => {
     return query.toLowerCase().split(' ').find(word => 
@@ -169,4 +170,4 @@ const ShoppingAssistant = () => {
   );
 };
 
-export default ShoppingAssistant; 
+export default ShoppingAssistant;

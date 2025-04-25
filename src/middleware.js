@@ -2,7 +2,7 @@ import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
 
 export default withAuth(
-    function middleware(req) {
+    function middleware(/* req */) { // Removed req parameter
         return NextResponse.next();
     },
     {
@@ -18,4 +18,4 @@ export const config = {
         '/carrito/:path*',
         '/checkout/:path*',
     ],
-}; 
+};
